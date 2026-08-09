@@ -1,0 +1,12 @@
+{
+  "name": "bepinex-manager",
+  "version": "0.1.0",
+  "description": "A web-based BepInEx plugin manager",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^32.2.0"
+  }
+}
