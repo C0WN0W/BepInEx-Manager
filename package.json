@@ -3,10 +3,58 @@
   "version": "0.1.0",
   "description": "A web-based BepInEx plugin manager",
   "main": "main.js",
+  "author": "BepInEx Manager",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:portable": "electron-builder --win portable",
+    "dist:installer": "electron-builder --win nsis"
   },
   "devDependencies": {
-    "electron": "^32.2.0"
+    "electron": "^32.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.bepinex.manager",
+    "productName": "BepInEx Manager",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}-${version}-${arch}-${target}.${ext}"
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-portable.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "BepInEx Manager",
+      "artifactName": "${productName}-${version}-setup.${ext}"
+    }
   }
 }
