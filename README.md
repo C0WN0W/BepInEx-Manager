@@ -2,6 +2,10 @@
 
 A web-based (Electron) BepInEx plugin manager.
 
+## User Guide
+
+- [USAGE.en.md](./USAGE.en.md) — installing BepInEx, managing plugins, importing plugins, themes, troubleshooting.
+
 ## Run
 
 ```powershell
